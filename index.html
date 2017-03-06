@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-2.2.4.js"></script>
+    <meta charset="utf-8">
+    <title>Exercice 3</title>
+  </head>
+  <body>
+    <!-- Ajout d'un formulaire avec 4 input et un bouton pour valider -->
+    <form>
+      <fieldset>
+        <legend>Merci de renseigner les champs ci-dessous</legend>
+        <label for="first_name">Prénom: </label><input type="text" name="first_name" id="first_name" value="" placeholder="Entrez votre prénom"><br>
+        <label for="second_name">Nom: </label><input type="text" name="second_name" id="second_name" value="" placeholder="Entrez votre nom"><br>
+        <label for="phone">Téléphone: </label><input type="text" name="phone" id="phone" value="" placeholder="Entrez votre téléphone"><br>
+        <label for="mail">Email: </label><input type="text" name="mail" id="mail" value="" placeholder="Entrez votre Email"><br>
+      </fieldset>
+    </form>
+    <button id="validate" type="button" name="button">Validez</button>
+    <script>
+    // Fonction ready
+    $(function() {
+      // Ajout d'un click au bouton pour vérifier les valeurs des input
+      $('#validate').click(function() {
+        // On récupére les valeurs des input
+        var second_name = $('#second_name').val();
+        var first_name = $('#first_name').val();
+        var phone = $('#phone').val();
+        var mail = $('#mail').val();
+        // Je déclare mes regex
+        var mail_regex = '^[A-z0-9._%+-]+@[A-z0-9.-]+.[A-z]{2,4}$';
+        var phone_regex = '^(0|(\\+33)|(0033))[1-9][0-9]{8}$';
+        var name_regex = '^[A-z-]{3,47}$';
+        // if else pour vérifier les valeurs avec mes regex
+        if (first_name.match(name_regex) && second_name.match(name_regex) && phone.match(phone_regex) && mail.match(mail_regex)) {
+          alert('Merci pour votre contribution');
+        } else {
+          alert('Attention un ou plusieurs champ(s) a été mal renseigné(s)');
+        }
+      });// ~ Validate-Click
+    });// ~ Ready
+    </script>
+  </body>
+</html>
