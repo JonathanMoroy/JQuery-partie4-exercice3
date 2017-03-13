@@ -29,9 +29,9 @@
         var phone = $('#phone').val();
         var mail = $('#mail').val();
         // Je déclare mes regex
-        var mail_regex = '^[A-z0-9._%+-]+@[A-z0-9.-]+.[A-z]{2,4}$';
+        var mail_regex = /^[\w\-\.]+[a-z0-9]@[\w\-\.]+[a-z0-9]\.[a-z]{2,}$/;
         var phone_regex = '^(0|(\\+33)|(0033))[1-9][0-9]{8}$';
-        var name_regex = '^[A-z-]{3,47}$';
+        var name_regex = '^[A-z- \\áàâäãçéèêëíìîïñóòôöõúùûüÁÀÂÄÇÉÈÊËÍÌÎÏÓÒÔÖÚÙÛÜ\s]{1,}$';
         // if else pour vérifier les valeurs avec mes regex
         if (first_name.match(name_regex) && second_name.match(name_regex) && phone.match(phone_regex) && mail.match(mail_regex)) {
           alert('Merci pour votre contribution');
